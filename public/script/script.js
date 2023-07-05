@@ -123,6 +123,10 @@ async function like(factObj, num) {
     localStorage.setItem(`${fact._id}`, JSON.stringify(isClicked));
   }
 
+  for (var j = 0; j < numLikes; j++) {
+    document.querySelector(`#s${fact._id}${j}`).textContent = numLikes[j];
+  }
+
   const res = await fetch(url, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
@@ -132,10 +136,6 @@ async function like(factObj, num) {
   });
   const data = await res.json();
 
-  for (var j = 0; j < data.numOfLikes.length; j++) {
-    document.querySelector(`#s${fact._id}${j}`).textContent =
-      data.numOfLikes[j];
-  }
   if (data.disputed) {
     document.querySelector(`#dis${fact._id}`).classList.remove("display-none");
   } else {
