@@ -123,7 +123,7 @@ async function like(factObj, num) {
     localStorage.setItem(`${fact._id}`, JSON.stringify(isClicked));
   }
 
-  for (var j = 0; j < numLikes; j++) {
+  for (var j = 0; j < numLikes.length; j++) {
     document.querySelector(`#s${fact._id}${j}`).textContent = numLikes[j];
   }
 
