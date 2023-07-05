@@ -93,7 +93,8 @@ async function like(factObj, num) {
   }
   // var numLikes = divEl.map((div) => Number(div.textContent));
   let click = JSON.parse(localStorage.getItem(`${fact._id}`));
-  var url = new URL("http://127.0.0.1:3001");
+  // var url = new URL("http://127.0.0.1:3001");
+  var url = new URL(window.location.href);
   // console.log("#" + fact._id + "b0");
   url.searchParams.append("factId", fact._id);
 
